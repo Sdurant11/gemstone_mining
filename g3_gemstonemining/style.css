@@ -1,43 +1,17 @@
 body {
     height: 100vh;
-    width: 100vw;
-
-
-
     background: url(assets/background.jpg);
-
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; 
+    /* background-color: rgb(123, 123, 123); */
     /* height: 100%;
     width: 100%; */
-
     text-align: center;
-
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: larger;
-
 }
-
-.instructionModal{     /*added for modal*/        
-    position: absolute;
-    top: 25%;
-    left: 25%;
-    height: 50%;
-    width: 50%;
-    border: lightcoral 3px solid;
-    background-color: lightcoral;
-}
-
-.instructionModalCloseButton{ /*added for the button*/
-    height: 10%;
-    width: 10%;
-    display: block;
-    z-index: 100;
-    margin: auto;
-}
-
-header {
+/* header {
     justify-content: center;
     align-content: center;
     height: 10%;
@@ -46,162 +20,146 @@ header {
     border-style: solid;
     border-color: dddddd;
     border-width: 1px;
+} */
+header {
+    justify-content: center;
+    align-content: center;
+    height: 12%;
+    background:rgb(123, 123, 123);
+    margin: 10px 0 0 0;;
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
 }
-
 .heading {
     text-align: center;
-    padding-top: 2%;
-    padding-bottom: 2%;
 }
-
-
 /* h1 {
   text-align: center;
 } */
-
 p {
     font-size: 30px;
 }
-
 .mine {
     display: flexbox;
     padding: 20px;
-
     height: 240px;
     width: 320px;
-
-    background-color: gray;
-
+    background-color: 0;
     /* border: 5px solid #909090; */
-
 }
-
 .mine_button {
     display: inline-block;
     /* padding: 20px; */
-
     height: 240px;
     width: 320px;
-
     background: url(assets/mine_button.png);
     background-size: contain;
-
-    background-color: gray;
-
     background-repeat: no-repeat;
-
 }
-
 .exit {
     display: inline-block;
     /* padding: 20px; */
-
     height: 240px;
     width: 320px;
-
     background: url(assets/exit.png);
     background-size: contain;
-
-
     background-repeat: no-repeat;
-
 }
-
-
 .top {
-    height:45%;
+    height:40%;
     width: 100%;
     background-color: 0;
-    /* border: 5px solid #909090; */
+    border: 2px solid #909090;
     display: inline-flex;
 }
-
 .bottom {
+    display: flex;
     height:45%;
     width: 100%;
     background-color:  0;
-    /* border: 5px solid #909090; */
-    display: flex;
-
+    border: 2px solid #909090;
 }
-
 .player {
     display: flexbox;
     margin: 10px;
     padding: 10px;
-
     position: relative;
-    height: 240px;
-    width: 320px;
-
-    background-color: 0;
-    /* border: 5px solid #909090; */
-
-
+    height: 85%;
+    width: 20%;
+    background: url(assets/cart1.png);
+    background-repeat: no-repeat;
+    /* background-color: 0; */
+    border: 1px solid #909090;
 }
-
 .score {
     height: 36px;
     width: 48px;
-
-    border: 5px solid #909090;
+    border: 2px solid #909090;
     margin: 5px;
     text-justify: distribute;
 }
-
 .gem {
     display: inline-block;
     position: relative;
-
+    background-size: 100%;
     margin: 10px;
-
-
     height: 48px;
     width: 64px;
-
-    /* border: .5px solid #909090; */
-
+    /* color: rgb(184, 164, 164); */
+    border: .1px solid #909090;
+    color: white;
 }
-
 .topaz {
-
-
     background: url(assets/topaz.png);
     background-size: 100%;
     /* background-color: orange; */
 }
-
 .amethyst {
     background-color: purple;
 }
-
 .emerald {
     background: url(assets/emerald.png);
     background-size: 100%;
     /* background-color: green; */
 }
-
 .sapphire {
     background-color: blue;
 }
 .ruby {
     background: url(assets/ruby.png);
     background-size: 100%;
-
     /* background-color: red; */
 }
-
 .diamond {
     background: url(assets/diamond.png);
     background-size: 100%;
     /* background-color: white; */
 }
-
 .obsidian {
     color: white;
-    background-color: black;
+    /* background-color: black; */
+    background: url(assets/obsidian.png);
+    background-size: 100%;
 }
 
 .hidden {
    display: none;
+}
+
+.instructionModal{     /*added for modal*/
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    height: 50%;
+    width: 50%;
+    border: lightcoral 3px solid;
+    background-color: lightcoral;
+}
+.instructionModalCloseButton{ /*added for the button*/
+    height: 10%;
+    width: 10%;
+    display: block;
+    z-index: 100;
+    margin: auto;
 }
