@@ -1,29 +1,33 @@
+class Game {
 
 
-class Game{
+  constructor() {
+    //Sam updated gemarray and added text for stats
+    this.gemArray = ['diamond', 'diamond', 'ruby', 'ruby', 'ruby', 'ruby', 'emerald', 'emerald', 'emerald', 'emerald', 'emerald', 'emerald', 'emerald', 'topaz', 'topaz', 'topaz', 'topaz', 'topaz', 'topaz', 'topaz', 'topaz', 'obsidian', 'obsidian', 'obsidian', 'obsidian', 'obsidian', 'obsidian', 'obsidian', 'obsidian'];
+    this.diamondNum = 2;
+    this.rubyNum = 4;
+    this.emeraldNum = 7;
+    this.topazNum = 8;
+    this.obsidianNum = 8;
+
+    this.updateGemCount();
 
 
-  constructor(players){
-    this.gemArray = ['diamond', 'topaz', 'emerald'];
 
-    this.players = players;
-    this.playerIndex = 0
+    this.player1;
+    // this.playerIndex = 0
     // this.player = $('.sleepy');
-    this.currentPlayer = this.players[this.playerIndex];
-    this.mine = $('.mine');
-    this.leave = $('.leave');
-    this.h1 = $('h1');
+    // this.currentPlayer = this.players[this.playerIndex];
+    this.mine = $('.mine_button');
+    this.exit = $('.exit');
     this.mineGem = this.mineGem.bind(this);
     this.leaveMine = this.leaveMine.bind(this);
-    console.log(this.mineGem);
-    console.log(this.leaveMine);
-
   }
 
-  addEventListeners(){
+  addEventListeners() {
     this.mine.on('click', this.mineGem);
-    this.leave.on('click', this.leaveMine);
-    this.h1.on('click', this.mineGem);
+    this.exit.on('click', this.leaveMine);
+
 
 
   }
@@ -35,9 +39,9 @@ class Game{
   //   }
 
 
-    // safe - if player selects "mine" goes into calls function to mine for a gem
+  // safe - if player selects "mine" goes into calls function to mine for a gem
 
-    //gamble -if player selects "leaves" goes into function of leaving game and updating gem count and points
+  //gamble -if player selects "leaves" goes into function of leaving game and updating gem count and points
 
 
   mineGem() {
@@ -49,38 +53,40 @@ class Game{
     //does if statement to see if player currently has 1 obsidian, if so then calls dieFunction, if does not, increment obsidianCount++
     //math.randon function to get gems index
     var gemIndex = Math.floor(Math.random() * this.gemArray.length);
-    var newGem = this.gemArray.splice([gemIndex], 1 );
+    var newGem = this.gemArray[gemIndex];
+    this.gemArray.splice([gemIndex], 1);
+    console.log(this.gemArray);
 
-    this.currentPlayer.addGem( newGem );
+    this.player1.addGem(newGem);
 
-    
-    // if (newGem === 'diamond'){
-    //   Player.playerStats.pointCount += 8;
-    //   Player.playerStats.diamond ++;
-    // } else if ( newGem === 'emerald'){
-    //   Player.playerStats.pointCount += 6;
-    //   Player.playerStats.emerald++;
-    // } else if (newGem === 'ruby') {
-    //   Player.playerStats.pointCount += 4;
-    //   Player.playerStats.ruby++;
-    // } else if (newGem === 'topaz') {
-    //   Player.playerStats.pointCount += 2;
-    //   Player.playerStats.topaz++;
-    // }
+    //Sam added if statement to check gem and update dom
+    if (newGem === 'topaz') {
+      this.topazNum--;
+    } else if (newGem === 'emerald') {
+      this.emeraldNum--;
+    } else if (newGem === 'diamond') {
+      this.diamondNum--;
+    } else if (newGem === 'ruby') {
+      this.rubyNum--;
+    } else if (newGem === 'obsidian') {
+      this.obsidianNum--;
+    }
+    this.updateGemCount();
 
   }
+
   leaveMine() {
-    //pass a modal alerting you leaving in mickey mouse voice
-
-  }
-  die() {
-    //updates current points/gem count to 0, pops up modal saying player died
-
+    $('#popUpSleepy1').removeClass('hidden');
+    console.log('this works');
   }
 
-
-
-
+  updateGemCount() {
+    $('#mineDiamond').text(this.diamondNum);
+    $('#mineRuby').text(this.rubyNum);
+    $('#mineEmerald').text(this.emeraldNum);
+    $('#mineTopaz').text(this.topazNum);
+    $('#mineObsidian').text(this.obsidianNum);
+  }
 
 
 }
