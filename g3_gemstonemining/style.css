@@ -1,0 +1,80 @@
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+h1 {
+  text-align: center;
+}
+
+.mine {
+    height: 240px;
+    width: 320px;
+    background-color: #d8d8d8;
+    border: 5px solid #909090;
+}
+
+.top {
+    height:45%;
+    width: 100%;
+    background-color: #d8d8d8;
+    border: 5px solid #909090;
+}
+
+.bottom {
+    height:45%;
+    width: 100%;
+    background-color: #d8d8d8;
+    border: 5px solid #909090;
+    display: flex;
+
+}
+
+.player {
+    height: 240px;
+    width: 320px;
+    background-color: #d8d8d8;
+    border: 5px solid #909090;
+    display: flex;
+
+}
+
+.score {
+    height: 36px;
+    width: 48px;
+
+    border: 5px solid #909090;
+    margin: 5px;
+
+    text-align: center;
+    text-justify: distribute;
+}
+
+.gem {
+    height: 36px;
+    width: 48px;
+
+    border: 2px solid #909090;
+
+}
+
+.topaz {
+    background-color: orange;
+}
+
+.emerald {
+    background-color: green;
+}
+
+.ruby {
+    background-color: red;
+}
+
+.diamond {
+    background-color: white;
+}
+
+.obsidian {
+    color: white;
+    background-color: black;
+}
