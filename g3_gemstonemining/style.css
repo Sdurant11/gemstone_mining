@@ -3,7 +3,7 @@ body {
     background: url(assets/background.jpg);
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     /* background-color: rgb(123, 123, 123); */
     /* height: 100%;
     width: 100%; */
@@ -155,6 +155,7 @@ p {
     width: 50%;
     border: lightcoral 3px solid;
     background-color: lightcoral;
+    font-family: Luminari, fantasy;
 }
 .instructionModalCloseButton{ /*added for the button*/
     height: 10%;
@@ -162,4 +163,8 @@ p {
     display: block;
     z-index: 100;
     margin: auto;
+}
+
+ul{
+    text-align: left;
 }
