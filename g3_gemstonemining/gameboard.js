@@ -55,7 +55,7 @@ class Game {
     var gemIndex = Math.floor(Math.random() * this.gemArray.length);
     var newGem = this.gemArray[gemIndex];
     this.gemArray.splice([gemIndex], 1);
-    console.log(this.gemArray);
+    
 
     this.player1.addGem(newGem);
 
@@ -87,7 +87,7 @@ class Game {
     $('#mineTopaz').text(this.topazNum);
     $('#mineObsidian').text(this.obsidianNum);
   }
-  
+
 
 
 }

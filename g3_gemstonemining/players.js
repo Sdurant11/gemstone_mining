@@ -15,7 +15,7 @@ class Player {
   }
 
   addGem(gem) {
-    console.log("this works");
+    
 
     //if statement for men selected /obsidian
     if (gem === 'diamond') {
@@ -39,7 +39,7 @@ class Player {
     this.updatePlayer();
   }
 
-  
+
 
 
   //Sam added die fuction to 'players.js' from the 'gameboard.js'
@@ -48,7 +48,7 @@ class Player {
     $("#popUpSleepy2").removeClass("hidden");
 
   }
-  
+
   updatePlayer(){
     $("#score_sleepy").text(this.playerStats.pointCount);
     $("#sleepyTopaz").text(this.playerStats.topaz);
@@ -58,4 +58,3 @@ class Player {
     $("#sleepyObsidian").text(this.playerStats.obsidian);
   }
 }
-

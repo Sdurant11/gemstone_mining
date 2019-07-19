@@ -7,7 +7,7 @@ body {
     /* background-color: rgb(123, 123, 123); */
     /* height: 100%;
     width: 100%; */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Luminari, fantasy;
     text-align: center;
 }
 /* header {
@@ -195,6 +195,7 @@ p {
     width: 50%;
     border: lightcoral 3px solid;
     background-color: lightcoral;
+    font-family: Luminari, fantasy;
 }
 .instructionModalCloseButton{ /*added for the button*/
     height: 10%;
@@ -234,5 +235,12 @@ p {
     background: #ddd;
     margin: auto;
 }
-.shadow {
+
+#popUpSleepy2{
+    background-color: lightcoral;
+    font-family: Luminari, fantasy;
+    position: absolute;
+    color: white;
+    font-size: 50px;
+    height: 60%;
 }
