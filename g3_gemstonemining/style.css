@@ -1,0 +1,246 @@
+body {
+    height: 100vh;
+    background: url(assets/background.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-color: rgb(123, 123, 123); */
+    /* height: 100%;
+    width: 100%; */
+    font-family: Luminari, fantasy;
+    text-align: center;
+}
+/* header {
+    justify-content: center;
+    align-content: center;
+    height: 10%;
+    background: 0;
+    margin: 20px;
+    border-style: solid;
+    border-color: dddddd;
+    border-width: 1px;
+} */
+header {
+    justify-content: center;
+    align-content: center;
+    height: 12%;
+    background: 0;
+    /* background:rgb(123, 123, 123); */
+    margin: 10px 0 0 0;;
+    font-size: 30px;
+    /* border-width: .5px; */
+    /* color: white; */
+}
+.heading {
+    text-align: center;
+}
+h1 {
+    text-align: center;
+    font-size: larger;
+    -webkit-text-fill-color: black; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: white;
+}
+h2 {
+    font-size: 30px;
+    margin: -5px;
+    /* color: white; */
+      color: black;
+  -webkit-text-fill-color: black; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
+p {
+    font-size: 30px;
+    margin-top: 10px;
+}
+.mine {
+    display: flexbox;
+    align-items: center;
+    padding: 50px;
+    height: 240px;
+    width: 280px;
+    background-color: 0;
+    /* border: .1px solid #909090; */
+}
+.mine_button {
+    display: inline-block;
+    /* padding: 20px; */
+    height: 240px;
+    width: 320px;
+    background: url(assets/mine_button.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.exit {
+    display: inline-block;
+    /* padding: 20px; */
+    height: 240px;
+    width: 320px;
+    background: url(assets/exit.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.top {
+    height:40%;
+    width: 100%;
+    background-color: 0;
+    /* border: .5px solid #909090; */
+    display: inline-flex;
+}
+.bottom {
+    display: flex;
+    justify-content: center;
+    height:45%;
+    width: 100%;
+    background-color:  0;
+    /* border: .5px solid #909090; */
+}
+.player {
+    display: flexbox;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 25px;
+    padding: 30px;
+    position: relative;
+    height: 85%;
+    width: 20%;
+    background: url(assets/cart1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-color: 0; */
+    /* border: 1px solid #909090; */
+}
+.player_name {
+    /* border: .1px solid #909090; */
+    margin-top: 0;
+    margin-bottom: 5%;
+}
+.score {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    /* display:flex;
+    align-self: flex-end; */
+    height: 36px;
+    width: 48px;
+    background-color: black;
+    /* border: .1px solid #909090; */
+    /* margin: 5px; */
+    /* text-justify: distribute; */
+}
+.score_text {
+    font-size: 30px;
+    color: white;
+}
+.gem_div {
+    margin-top: 10%;
+}
+.gem {
+    display: inline-block;
+    justify-content: center;
+    /* align-items: center; */
+    vertical-align: middle;
+    position: relative;
+    background-size: 100%;
+    /* margin: 5px; */
+    height: 48px;
+    width: 64px;
+    /* color: rgb(184, 164, 164); */
+    /* border: .1px solid #909090; */
+    color: white;
+}
+.topaz {
+    background: url(assets/topaz.png);
+    background-size: 100%;
+    /* background-color: orange; */
+}
+.amethyst {
+    background-color: purple;
+}
+.emerald {
+    background: url(assets/emerald.png);
+    background-size: 100%;
+    /* background-color: green; */
+}
+.sapphire {
+    background-color: blue;
+}
+.ruby {
+    background: url(assets/ruby.png);
+    background-size: 100%;
+    /* background-color: red; */
+}
+.diamond {
+    background: url(assets/diamond.png);
+    background-size: 100%;
+    /* background-color: white; */
+}
+.obsidian {
+    color: white;
+    /* background-color: black; */
+    background: url(assets/obsidian.png);
+    background-size: 100%;
+}
+.hidden {
+   display: none;
+}
+.instructionModal{     /*added for modal*/
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    height: 50%;
+    width: 50%;
+    border: lightcoral 3px solid;
+    background-color: lightcoral;
+    font-family: Luminari, fantasy;
+}
+.instructionModalCloseButton{ /*added for the button*/
+    height: 10%;
+    width: 10%;
+    display: block;
+    z-index: 100;
+    margin: auto;
+}
+.pop-up {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,.4);
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+.modal {
+    position: fixed;
+    width: 100px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border: 10px solid #aaa;
+    border-radius: 15px;
+    text-align: center;
+    z-index: 2;
+    transform: translate(0%, 0%);
+    top: 50%;
+    left: 50%;
+    display: flex;
+    font-family: Luminari, fantasy;
+    font-size: 13px;
+}
+.modal-message{
+    font-family: Arial, sans-serif;
+    background: #ddd;
+    margin: auto;
+}
+
+#popUpSleepy2{
+    background-color: lightcoral;
+    font-family: Luminari, fantasy;
+    position: absolute;
+    color: white;
+    font-size: 50px;
+    height: 60%;
+}
