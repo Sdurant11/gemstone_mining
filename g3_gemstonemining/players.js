@@ -11,7 +11,7 @@ class Player {
       emerald: 0,
       topaz: 0,
     };
-
+    this.updatePlayer();
   }
 
   addGem(gem) {
@@ -36,14 +36,26 @@ class Player {
       this.playerStats.obsidian++
       this.die();
     }
+    this.updatePlayer();
   }
+
+  
 
 
   //Sam added die fuction to 'players.js' from the 'gameboard.js'
   die() {
     this.playerStats.pointCount = 0;
+    $("#popUpSleepy2").removeClass("hidden");
 
   }
-
-
+  
+  updatePlayer(){
+    $("#score_sleepy").text(this.playerStats.pointCount);
+    $("#sleepyTopaz").text(this.playerStats.topaz);
+    $("#sleepyEmerald").text(this.playerStats.emerald);
+    $("#sleepyRuby").text(this.playerStats.ruby);
+    $("#sleepyDiamond").text(this.playerStats.diamond);
+    $("#sleepyObsidian").text(this.playerStats.obsidian);
+  }
 }
+
