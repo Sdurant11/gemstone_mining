@@ -1,3 +1,4 @@
+
 body {
     height: 100vh;
     background: url(assets/background.jpg);
@@ -9,7 +10,6 @@ body {
     width: 100%; */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-
 }
 /* header {
     justify-content: center;
@@ -21,7 +21,6 @@ body {
     border-color: dddddd;
     border-width: 1px;
 } */
-
 header {
     justify-content: center;
     align-content: center;
@@ -31,35 +30,27 @@ header {
     margin: 10px 0 0 0;;
     font-size: 30px;
     /* border-width: .5px; */
-
-
-
     /* color: white; */
-
 }
 .heading {
     text-align: center;
 }
 h1 {
     text-align: center;
-
     font-size: larger;
     -webkit-text-fill-color: black; /* Will override color (regardless of order) */
     -webkit-text-stroke-width: 1.5px;
     -webkit-text-stroke-color: white;
 }
-
 h2 {
     font-size: 30px;
     margin: -5px;
     /* color: white; */
-
       color: black;
   -webkit-text-fill-color: black; /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
 }
-
 p {
     font-size: 30px;
     margin-top: 10px;
@@ -123,13 +114,11 @@ p {
     /* background-color: 0; */
     /* border: 1px solid #909090; */
 }
-
 .player_name {
     /* border: .1px solid #909090; */
     margin-top: 0;
     margin-bottom: 5%;
 }
-
 .score {
     position: absolute;
     top: 5%;
@@ -143,18 +132,13 @@ p {
     /* margin: 5px; */
     /* text-justify: distribute; */
 }
-
 .score_text {
     font-size: 30px;
     color: white;
 }
-
 .gem_div {
     margin-top: 10%;
 }
-
-
-
 .gem {
     display: inline-block;
     justify-content: center;
@@ -201,13 +185,10 @@ p {
     background: url(assets/obsidian.png);
     background-size: 100%;
 }
-
 .hidden {
    display: none;
 }
-
 .instructionModal{     /*added for modal*/
-
     position: absolute;
     top: 25%;
     left: 25%;
@@ -223,7 +204,6 @@ p {
     z-index: 100;
     margin: auto;
 }
-
 .pop-up {
     position: fixed;
     height: 100%;
@@ -235,28 +215,25 @@ p {
 }
 .modal {
     position: fixed;
-	width: 100px;
-	margin: 0 auto;
-	background: #fff;
-	padding: 20px;
-	border: 10px solid #aaa;
-	border-radius: 15px;
+    width: 100px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border: 10px solid #aaa;
+    border-radius: 15px;
     text-align: center;
     z-index: 2;
     transform: translate(0%, 0%);
     top: 50%;
     left: 50%;
     display: flex;
-    font-family: Helvetica, Arial, sans-serif;
-	font-size: 13px;
+    font-family: Luminari, fantasy;
+    font-size: 13px;
 }
-
 .modal-message{
     font-family: Arial, sans-serif;
     background: #ddd;
     margin: auto;
 }
-
 .shadow {
-
 }
