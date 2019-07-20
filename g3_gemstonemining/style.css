@@ -196,6 +196,7 @@ p {
     border: lightcoral 3px solid;
     background-color: lightcoral;
     font-family: Luminari, fantasy;
+    z-index: 1;
 }
 .instructionModalCloseButton{ /*added for the button*/
     height: 10%;
@@ -243,4 +244,14 @@ p {
     color: white;
     font-size: 50px;
     height: 60%;
+}
+#templates{
+    display: none;
+}
+.currentPlayer{
+    box-shadow: 5px 5px 5px lime;
+}
+
+.kaboom{
+    filter: brightness(20%);
 }
