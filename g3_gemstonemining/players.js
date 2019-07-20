@@ -95,4 +95,17 @@ class Player {
     this.updatePlayer();
     return this.domElements.container;
   }
+
+  moveGemtoCart(gem){
+    var mineGem = $('.mine .hidden .'+ gem);
+    mineGem.css('position', 'absolute');
+    var playerGemPosition = this.domElements.mineCart.find('.' + gem).offset();
+    console.log(playerGemPosition);
+    mineGem.removeClass('hidden');
+    mineGem.animate({
+      top: playerGemPosition.top + 'px',
+      left: playerGemPosition.left +'px'
+    }, 3000);
+  }
+
 }

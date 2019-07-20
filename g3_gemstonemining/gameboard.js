@@ -86,6 +86,7 @@ class Game {
     var newGem = this.gemArray[gemIndex];
     this.gemArray.splice([gemIndex], 1);
     this.activePlayers[this.currentPlayer].addGem(newGem);
+    this.activePlayers[this.currentPlayer].moveGemtoCart(newGem);
 
     this.mine[newGem].count--;
     this.updateGemCount();
@@ -123,7 +124,6 @@ class Game {
     for (var gem in this.mine){
       $('.mine .' + gem).text(this.mine[gem].count)
     }
-
   }
 
 

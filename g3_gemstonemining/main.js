@@ -14,7 +14,6 @@ function initializeApp() {
   gameBoard.addPlayer('Dopey');
   $('.instructionModalCloseButton').click(closeModal);//added for the click button
 
-
 }
 
 function closeModal() {
