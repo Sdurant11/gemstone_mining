@@ -3,35 +3,65 @@ class Game {
 
   constructor() {
     //Sam updated gemarray and added text for stats
-    this.gemArray = ['diamond', 'diamond', 'ruby', 'ruby', 'ruby', 'ruby', 'emerald', 'emerald', 'emerald', 'emerald', 'emerald', 'emerald', 'emerald', 'topaz', 'topaz', 'topaz', 'topaz', 'topaz', 'topaz', 'topaz', 'topaz', 'obsidian', 'obsidian', 'obsidian', 'obsidian', 'obsidian', 'obsidian', 'obsidian', 'obsidian'];
-    this.diamondNum = 2;
-    this.rubyNum = 4;
-    this.emeraldNum = 7;
-    this.topazNum = 8;
-    this.obsidianNum = 8;
+    this.killPlayer = this.killPlayer.bind(this);
+    this.gemArray = [];
+    this.players = [];
+    this.activePlayers = [];
+    this.lastActivePlayer = null;
+    // this.diamondNum = 2;
+    // this.rubyNum = 4;
+    // this.emeraldNum = 7;
+    // this.topazNum = 8;
+    // this.obsidianNum = 8;
+    this.mine= {
+      'diamond': {count: 2, value: 8},
+      'ruby': { count: 4, value: 4 },
+      'emerald': { count: 7, value: 6 },
+      'topaz': { count: 8, value: 2 },
+      'obsidian': { count: 8, value: 0 }
+    }
 
+    this.fillGemBag()
     this.updateGemCount();
 
 
-
-    this.player1;
+    this.currentPlayer = 0;
     // this.playerIndex = 0
     // this.player = $('.sleepy');
     // this.currentPlayer = this.players[this.playerIndex];
-    this.mine = $('.mine_button');
-    this.exit = $('.exit');
+    this.domElements = {
+      mine: $('.mine_button'),
+      exit: $('.exit')
+    }
     this.mineGem = this.mineGem.bind(this);
     this.leaveMine = this.leaveMine.bind(this);
   }
 
-  addEventListeners() {
-    this.mine.on('click', this.mineGem);
-    this.exit.on('click', this.leaveMine);
-
-
+  fillGemBag() {
+    this.gemArray = [];
+    for (var gem in this.mine) {
+      var gemCount = this.mine[gem].count;
+      for (var currentCount = 0; currentCount < gemCount; currentCount++) {
+        this.gemArray.push(gem);
+      }
+    }
 
   }
 
+  addEventListeners() {
+    this.domElements.mine.on('click', this.mineGem);
+    this.domElements.exit.on('click', this.leaveMine);
+  }
+
+
+   addPlayer (name){
+    var player = new Player(this.mine, name, this.killPlayer);
+    this.players.push(player);
+    this.activePlayers.push(player);
+    var playerDom = player.render();
+     this.lastActivePlayer = player;
+     $("#playerContainer").append(playerDom);
+   }
   // makeDecision(decisionID) {
   //   // if statement deciding whether to mine or leave
   //   if (decisionID === $('.mine')) {
@@ -55,24 +85,33 @@ class Game {
     var gemIndex = Math.floor(Math.random() * this.gemArray.length);
     var newGem = this.gemArray[gemIndex];
     this.gemArray.splice([gemIndex], 1);
-    
+    this.activePlayers[this.currentPlayer].addGem(newGem);
 
-    this.player1.addGem(newGem);
-
-    //Sam added if statement to check gem and update dom
-    if (newGem === 'topaz') {
-      this.topazNum--;
-    } else if (newGem === 'emerald') {
-      this.emeraldNum--;
-    } else if (newGem === 'diamond') {
-      this.diamondNum--;
-    } else if (newGem === 'ruby') {
-      this.rubyNum--;
-    } else if (newGem === 'obsidian') {
-      this.obsidianNum--;
-    }
+    this.mine[newGem].count--;
     this.updateGemCount();
 
+    this.gotoNewPlayer();
+
+  }
+  apocalypse(){
+    alert('everyone is dead');
+  }
+  killPlayer( player ){
+    var playerIndex = this.activePlayers.indexOf(player);
+    this.activePlayers.splice( playerIndex, 1);
+    this.currentPlayer--;
+    if(this.activePlayers.length===0){
+      this.apocalypse();
+    }
+  }
+  gotoNewPlayer(){
+    this.currentPlayer++;
+    if (this.currentPlayer === this.activePlayers.length){
+      this.currentPlayer = 0;
+    }
+    this.lastActivePlayer.markInactive();
+    this.activePlayers[ this.currentPlayer ].markActive();
+    this.lastActivePlayer = this.activePlayers[this.currentPlayer];
   }
 
   leaveMine() {
@@ -81,13 +120,11 @@ class Game {
   }
 
   updateGemCount() {
-    $('#mineDiamond').text(this.diamondNum);
-    $('#mineRuby').text(this.rubyNum);
-    $('#mineEmerald').text(this.emeraldNum);
-    $('#mineTopaz').text(this.topazNum);
-    $('#mineObsidian').text(this.obsidianNum);
-  }
+    for (var gem in this.mine){
+      $('.mine .' + gem).text(this.mine[gem].count)
+    }
 
+  }
 
 
 }
