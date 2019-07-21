@@ -2,17 +2,14 @@ class Game {
 
 
   constructor() {
-    //Sam updated gemarray and added text for stats
+
     this.killPlayer = this.killPlayer.bind(this);
     this.gemArray = [];
     this.players = [];
     this.activePlayers = [];
     this.lastActivePlayer = null;
-    // this.diamondNum = 2;
-    // this.rubyNum = 4;
-    // this.emeraldNum = 7;
-    // this.topazNum = 8;
-    // this.obsidianNum = 8;
+    this.scoreBoardPoints = 0;
+
     this.mine= {
       'diamond': {count: 2, value: 8},
       'ruby': { count: 4, value: 4 },
@@ -21,14 +18,13 @@ class Game {
       'obsidian': { count: 8, value: 0 }
     }
 
-    this.fillGemBag()
+    this.fillGemBag();
     this.updateGemCount();
+    this.updateScoreBoard();
 
 
     this.currentPlayer = 0;
-    // this.playerIndex = 0
-    // this.player = $('.sleepy');
-    // this.currentPlayer = this.players[this.playerIndex];
+
     this.domElements = {
       mine: $('.mine_button'),
       exit: $('.exit')
@@ -38,6 +34,7 @@ class Game {
   }
 
   fillGemBag() {
+
     this.gemArray = [];
     for (var gem in this.mine) {
       var gemCount = this.mine[gem].count;
@@ -62,26 +59,9 @@ class Game {
      this.lastActivePlayer = player;
      $("#playerContainer").append(playerDom);
    }
-  // makeDecision(decisionID) {
-  //   // if statement deciding whether to mine or leave
-  //   if (decisionID === $('.mine')) {
-  //     this.mineGem();
-  //   }
-
-
-  // safe - if player selects "mine" goes into calls function to mine for a gem
-
-  //gamble -if player selects "leaves" goes into function of leaving game and updating gem count and points
-
 
   mineGem() {
 
-    //looks into array fo gems, randomly select ones, pops it out, pushes it to player gem count
-    //if statement for all the good gems, increments points and gemCount
-    // if 2 blcak gems
-    //   this.die()
-    //does if statement to see if player currently has 1 obsidian, if so then calls dieFunction, if does not, increment obsidianCount++
-    //math.randon function to get gems index
     var gemIndex = Math.floor(Math.random() * this.gemArray.length);
     var newGem = this.gemArray[gemIndex];
     this.gemArray.splice([gemIndex], 1);
@@ -125,6 +105,18 @@ class Game {
       $('.mine .' + gem).text(this.mine[gem].count)
     }
   }
+
+ 
+
+
+
+
+
+
+
+
+
+
 
 
 }
