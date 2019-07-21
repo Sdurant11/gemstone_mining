@@ -9,6 +9,7 @@ body {
     width: 100%; */
     font-family: Luminari, fantasy;
     text-align: center;
+    overflow: hidden;
 }
 /* header {
     justify-content: center;
@@ -27,7 +28,7 @@ header {
     background: 0;
     /* background:rgb(123, 123, 123); */
     margin: 10px 0 0 0;;
-    font-size: 30px;
+    font-size: 50px;
     /* border-width: .5px; */
     /* color: white; */
 }
@@ -71,6 +72,8 @@ p {
     background: url(assets/mine_button.png);
     background-size: contain;
     background-repeat: no-repeat;
+    font-size: 150%;
+    color: white;
 }
 .exit {
     display: inline-block;
@@ -80,6 +83,8 @@ p {
     background: url(assets/exit.png);
     background-size: contain;
     background-repeat: no-repeat;
+    color: white;
+    font-size: 150%
 }
 .top {
     height:40%;
@@ -191,13 +196,20 @@ p {
     position: absolute;
     top: 25%;
     left: 25%;
+    right: 25%;
     height: 50%;
     width: 50%;
     border: lightcoral 3px solid;
     background-color: lightcoral;
     font-family: Luminari, fantasy;
     z-index: 1;
+
 }
+ li {
+     list-style-type:none;
+     text-align: center;
+ }
+
 .instructionModalCloseButton{ /*added for the button*/
     height: 10%;
     width: 10%;
@@ -237,21 +249,38 @@ p {
     margin: auto;
 }
 
-#popUpSleepy2{
+/* #popUpSleepy2{
     background-color: lightcoral;
     font-family: Luminari, fantasy;
     position: absolute;
     color: white;
     font-size: 50px;
     height: 60%;
-}
+} */
 #templates{
     display: none;
 }
 .currentPlayer{
     box-shadow: 5px 5px 5px lime;
+
 }
 
 .kaboom{
     filter: brightness(20%);
+}
+
+.scoreBoard {
+ font-family: Luminari, fantasy;
+ padding: 2%;
+ text-align: center;
+ color: white;
+ font-size: 30px;
+ border-color: white;
+ border: 5px;
+ display: inline;
+ width: 20%;
+ float: right;
+ margin-left: 0px;
+
+
 }

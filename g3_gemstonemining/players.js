@@ -24,9 +24,7 @@ class Player {
   }
 
   addGem(gem) {
-
-
-    //if statement for men selected /obsidian
+    debugger;
     this.mineCart[gem]++;
     this.points += this.mineData[gem].value;
 
@@ -34,17 +32,15 @@ class Player {
       this.die();
     }
     this.updatePlayer();
+    this.updateScoreBoard();
   }
 
 
-
-
-  //Sam added die fuction to 'players.js' from the 'gameboard.js'
   die() {
     this.dead = true;
     this.grungeUpPlayer();
     this.points = 0;
-    $("#popUpSleepy2").removeClass("hidden");
+    // $("#popUpSleepy2").removeClass("hidden");
     this.functionToCallWhenIDie( this );
   }
   grungeUpPlayer(){
@@ -62,26 +58,6 @@ class Player {
   markInactive(){
     this.domElements.container.removeClass('currentPlayer');
   }
-/*
-  <div class="player">
-                <div class="shadow">
-                    <div class="player_name">
-                        <h2></h2>
-                    </div>
-                    <div class="score">
-                        <span class="score_text">32</span>
-                    </div>
-                    <div class="gem_div">
-                        <div class="gem topaz" >1</div>
-                        <div class="gem emerald" ></div>
-                        <div class="gem ruby" >1</div>
-                        <div class="gem diamond" >1</div>
-                        <div class="gem obsidian" >1</div>
-                        <div class="pop-up hidden" >You died!</div>
-                    </div>
-                </div>
-            </div>
-  */
 
   render(){
     var domClone = $("#templates > .player").clone();
@@ -94,5 +70,6 @@ class Player {
     this.domElements.name.text(this.name);
     this.updatePlayer();
     return this.domElements.container;
+
   }
 }
