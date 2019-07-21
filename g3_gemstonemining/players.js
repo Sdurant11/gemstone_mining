@@ -95,4 +95,18 @@ class Player {
     this.updatePlayer();
     return this.domElements.container;
   }
+
+  moveGemtoCart(gem){
+    var newGemPosition = $('.mine .'+gem).offset();
+    var animationGem = $('<div>');
+    animationGem.addClass('gem '+gem);
+    animationGem.css({'top': newGemPosition.top + 'px', 'left': newGemPosition.left + 'px', 'position':'absolute'});
+    $('body').append(animationGem);
+    var playerGemPosition = this.domElements.mineCart.find('.' + gem).offset();
+    animationGem.animate({
+      top: playerGemPosition.top + 'px',
+      left: playerGemPosition.left +'px'
+    }, 2000, function(){$(animationGem).remove();});
+  }
+
 }
