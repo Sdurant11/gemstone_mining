@@ -32,7 +32,7 @@ class Player {
       this.die();
     }
     this.updatePlayer();
-    this.updateScoreBoard();
+    
   }
 
 

@@ -8,7 +8,7 @@ class Game {
     this.players = [];
     this.activePlayers = [];
     this.lastActivePlayer = null;
-    this.scoreBoardPoints = 0;
+    
 
     this.mine= {
       'diamond': {count: 2, value: 8},
@@ -20,7 +20,7 @@ class Game {
 
     this.fillGemBag();
     this.updateGemCount();
-    this.updateScoreBoard();
+
 
 
     this.currentPlayer = 0;
@@ -106,7 +106,7 @@ class Game {
     }
   }
 
- 
+
 
 
 
