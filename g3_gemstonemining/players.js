@@ -97,15 +97,16 @@ class Player {
   }
 
   moveGemtoCart(gem){
-    var mineGem = $('.mine .hidden .'+ gem);
-    mineGem.css('position', 'absolute');
+    var newGemPosition = $('.mine .'+gem).offset();
+    var animationGem = $('<div>');
+    animationGem.addClass('gem '+gem);
+    animationGem.css({'top': newGemPosition.top + 'px', 'left': newGemPosition.left + 'px', 'position':'absolute'});
+    $('body').append(animationGem);
     var playerGemPosition = this.domElements.mineCart.find('.' + gem).offset();
-    console.log(playerGemPosition);
-    mineGem.removeClass('hidden');
-    mineGem.animate({
+    animationGem.animate({
       top: playerGemPosition.top + 'px',
       left: playerGemPosition.left +'px'
-    }, 3000);
+    }, 2000, function(){$(animationGem).remove();});
   }
 
 }
