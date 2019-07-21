@@ -20,6 +20,7 @@ class Game {
 
     this.fillGemBag();
     this.updateGemCount();
+    this.updateScoreBoard();
 
 
     this.currentPlayer = 0;
@@ -105,9 +106,9 @@ class Game {
 
   }
 
-  updateScoreBoard() {
-    $('.player1Score').text();
-  }
+ 
+
+
 
 
 

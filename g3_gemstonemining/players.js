@@ -59,6 +59,9 @@ class Player {
     this.domElements.container.removeClass('currentPlayer');
   }
 
+
+
+
   render(){
     var domClone = $("#templates > .player").clone();
     this.domElements = {
