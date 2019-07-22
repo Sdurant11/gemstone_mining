@@ -8,7 +8,7 @@ class Game {
     this.players = [];
     this.activePlayers = [];
     this.lastActivePlayer = null;
-    
+
 
     this.mine= {
       'diamond': {count: 2, value: 8},
@@ -52,7 +52,7 @@ class Game {
 
 
    addPlayer (name){
-    var player = new Player(this.mine, name, this.killPlayer);
+    var player = new Player(this.mine, name, this.killPlayer, this.leaveMine);
     this.players.push(player);
     this.activePlayers.push(player);
     var playerDom = player.render();
@@ -77,6 +77,7 @@ class Game {
   apocalypse(){
     alert('everyone is dead');
   }
+
   killPlayer( player ){
     var playerIndex = this.activePlayers.indexOf(player);
     this.activePlayers.splice( playerIndex, 1);
@@ -85,6 +86,14 @@ class Game {
       this.apocalypse();
     }
   }
+
+  leaveMine(player){
+    var playerIndex = this.activePlayers.indexOf(player);
+    this.activePlayers.splice(playerIndex, 1);
+    this.currentPlayer--;
+  }
+
+
   gotoNewPlayer(){
     this.currentPlayer++;
     if (this.currentPlayer === this.activePlayers.length){
@@ -93,11 +102,6 @@ class Game {
     this.lastActivePlayer.markInactive();
     this.activePlayers[ this.currentPlayer ].markActive();
     this.lastActivePlayer = this.activePlayers[this.currentPlayer];
-  }
-
-  leaveMine() {
-    $('#popUpSleepy1').removeClass('hidden');
-    console.log('this works');
   }
 
   updateGemCount() {

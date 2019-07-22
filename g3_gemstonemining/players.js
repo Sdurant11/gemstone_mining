@@ -1,13 +1,15 @@
 class Player {
 
-  constructor(mineData, name, deathCallback) {
+  constructor(mineData, name, deathCallback, exitCallBack) {
     this.functionToCallWhenIDie = deathCallback;
+    this.functionToCallWhenILeave = exitCallback;
     this.name = name;
     this.points = 0;
     this.mineData = mineData;
     this.mineCart = {};
     this.emptyMineCart();
     this.dead = false;
+    this.leftMine = false;
 
     this.domElements = {
       container: null,
@@ -24,7 +26,6 @@ class Player {
   }
 
   addGem(gem) {
-    debugger;
     this.mineCart[gem]++;
     this.points += this.mineData[gem].value;
 
@@ -32,7 +33,6 @@ class Player {
       this.die();
     }
     this.updatePlayer();
-    
   }
 
 
@@ -40,9 +40,19 @@ class Player {
     this.dead = true;
     this.grungeUpPlayer();
     this.points = 0;
-    // $("#popUpSleepy2").removeClass("hidden");
     this.functionToCallWhenIDie( this );
   }
+
+  leave(){
+    this.leftMine = true;
+    this.playerLeftFilter();
+    this.functionToCallWhenILeave(this);
+  }
+
+  playerLeftFilter(){
+    this.domElements.container.addClass('left');
+  }
+
   grungeUpPlayer(){
     this.domElements.container.addClass('kaboom');
   }
@@ -52,15 +62,14 @@ class Player {
       this.domElements.mineCart.find('.'+gem).text( this.mineCart[gem]);
     }
   }
+
   markActive(){
     this.domElements.container.addClass('currentPlayer');
   }
+
   markInactive(){
     this.domElements.container.removeClass('currentPlayer');
   }
-
-
-
 
   render(){
     var domClone = $("#templates > .player").clone();
@@ -73,7 +82,6 @@ class Player {
     this.domElements.name.text(this.name);
     this.updatePlayer();
     return this.domElements.container;
-
   }
 
   moveGemtoCart(gem){
