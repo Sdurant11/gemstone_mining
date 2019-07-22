@@ -1,8 +1,7 @@
 class Player {
 
-  constructor(mineData, name, deathCallback, exitCallBack) {
+  constructor(mineData, name, deathCallback) {
     this.functionToCallWhenIDie = deathCallback;
-    this.functionToCallWhenILeave = exitCallback;
     this.name = name;
     this.points = 0;
     this.mineData = mineData;
@@ -43,10 +42,9 @@ class Player {
     this.functionToCallWhenIDie( this );
   }
 
-  leave(){
+  leave(player){
     this.leftMine = true;
     this.playerLeftFilter();
-    this.functionToCallWhenILeave(this);
   }
 
   playerLeftFilter(){
@@ -96,5 +94,4 @@ class Player {
       left: playerGemPosition.left +'px'
     }, 2000, function(){$(animationGem).remove();});
   }
-
 }

@@ -87,10 +87,10 @@ class Game {
     }
   }
 
-  leaveMine(player){
-    var playerIndex = this.activePlayers.indexOf(player);
-    this.activePlayers.splice(playerIndex, 1);
-    this.currentPlayer--;
+  leaveMine(){
+    var activePlayer = this.activePlayers[this.currentPlayer];
+    this.activePlayer.leave(activePlayer);
+    this.killPlayer(activePlayer);
   }
 
 
