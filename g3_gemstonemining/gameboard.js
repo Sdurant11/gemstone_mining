@@ -8,7 +8,7 @@ class Game {
     this.players = [];
     this.activePlayers = [];
     this.lastActivePlayer = null;
-    
+
 
     this.mine= {
       'diamond': {count: 2, value: 8},
@@ -34,7 +34,6 @@ class Game {
   }
 
   fillGemBag() {
-
     this.gemArray = [];
     for (var gem in this.mine) {
       var gemCount = this.mine[gem].count;
@@ -42,7 +41,6 @@ class Game {
         this.gemArray.push(gem);
       }
     }
-
   }
 
   addEventListeners() {
@@ -52,7 +50,7 @@ class Game {
 
 
    addPlayer (name){
-    var player = new Player(this.mine, name, this.killPlayer);
+    var player = new Player(this.mine, name, this.killPlayer, this.leaveMine);
     this.players.push(player);
     this.activePlayers.push(player);
     var playerDom = player.render();
@@ -65,8 +63,9 @@ class Game {
     var gemIndex = Math.floor(Math.random() * this.gemArray.length);
     var newGem = this.gemArray[gemIndex];
     this.gemArray.splice([gemIndex], 1);
-    this.activePlayers[this.currentPlayer].addGem(newGem);
     this.activePlayers[this.currentPlayer].moveGemtoCart(newGem);
+    this.activePlayers[this.currentPlayer].addGem(newGem);
+
 
     this.mine[newGem].count--;
     this.updateGemCount();
@@ -74,9 +73,11 @@ class Game {
     this.gotoNewPlayer();
 
   }
+
   apocalypse(){
     alert('everyone is dead');
   }
+
   killPlayer( player ){
     var playerIndex = this.activePlayers.indexOf(player);
     this.activePlayers.splice( playerIndex, 1);
@@ -85,6 +86,15 @@ class Game {
       this.apocalypse();
     }
   }
+
+  leaveMine(){
+    var activePlayer = this.activePlayers[this.currentPlayer];
+    activePlayer.leave();
+    this.killPlayer(activePlayer);
+    this.gotoNewPlayer();
+  }
+
+
   gotoNewPlayer(){
     this.currentPlayer++;
     if (this.currentPlayer === this.activePlayers.length){
@@ -93,11 +103,6 @@ class Game {
     this.lastActivePlayer.markInactive();
     this.activePlayers[ this.currentPlayer ].markActive();
     this.lastActivePlayer = this.activePlayers[this.currentPlayer];
-  }
-
-  leaveMine() {
-    $('#popUpSleepy1').removeClass('hidden');
-    console.log('this works');
   }
 
   updateGemCount() {

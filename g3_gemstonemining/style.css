@@ -249,14 +249,7 @@ p {
     margin: auto;
 }
 
-/* #popUpSleepy2{
-    background-color: lightcoral;
-    font-family: Luminari, fantasy;
-    position: absolute;
-    color: white;
-    font-size: 50px;
-    height: 60%;
-} */
+
 #templates{
     display: none;
 }
@@ -267,6 +260,11 @@ p {
 
 .kaboom{
     filter: brightness(20%);
+}
+
+.left{
+    background-color: red;
+    background-blend-mode: multiply;
 }
 
 .scoreBoard {

@@ -8,7 +8,11 @@ class Player {
     this.mineCart = {};
     this.emptyMineCart();
     this.dead = false;
+
+    this.leftMine = false;
+
     this.miningSound = document.getElementById("miningSound"); 
+
 
     this.domElements = {
       container: null,
@@ -25,7 +29,6 @@ class Player {
   }
 
   addGem(gem) {
-    debugger;
     this.mineCart[gem]++;
     this.points += this.mineData[gem].value;
 
@@ -33,7 +36,6 @@ class Player {
       this.die();
     }
     this.updatePlayer();
-    
   }
 
 
@@ -41,9 +43,18 @@ class Player {
     this.dead = true;
     this.grungeUpPlayer();
     this.points = 0;
-    // $("#popUpSleepy2").removeClass("hidden");
     this.functionToCallWhenIDie( this );
   }
+
+  leave(){
+    this.leftMine = true;
+    this.playerLeftFilter();
+  }
+
+  playerLeftFilter(){
+    this.domElements.container.addClass('left');
+  }
+ß
   grungeUpPlayer(){
     this.domElements.container.addClass('kaboom');
   }
@@ -53,15 +64,14 @@ class Player {
       this.domElements.mineCart.find('.'+gem).text( this.mineCart[gem]);
     }
   }
+
   markActive(){
     this.domElements.container.addClass('currentPlayer');
   }
+
   markInactive(){
     this.domElements.container.removeClass('currentPlayer');
   }
-
-
-
 
   render(){
     var domClone = $("#templates > .player").clone();
@@ -74,7 +84,6 @@ class Player {
     this.domElements.name.text(this.name);
     this.updatePlayer();
     return this.domElements.container;
-
   }
 
   moveGemtoCart(gem){
@@ -87,7 +96,11 @@ class Player {
     animationGem.animate({
       top: playerGemPosition.top + 'px',
       left: playerGemPosition.left +'px'
-    }, 2000, function(){$(animationGem).remove();});
+
+    }, 1000, function(){$(animationGem).remove();});
+  }
+
+    
     this.stopAudio();//added for sound
     this.playAudio();//added for sound
 
@@ -103,4 +116,5 @@ class Player {
     this.miningSound.pause(); 
     this.miningSound.currentTime=0;
   } 
+
 }
