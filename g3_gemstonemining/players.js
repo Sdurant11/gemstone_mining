@@ -8,7 +8,11 @@ class Player {
     this.mineCart = {};
     this.emptyMineCart();
     this.dead = false;
+
     this.leftMine = false;
+
+    this.miningSound = document.getElementById("miningSound"); 
+
 
     this.domElements = {
       container: null,
@@ -92,6 +96,25 @@ class Player {
     animationGem.animate({
       top: playerGemPosition.top + 'px',
       left: playerGemPosition.left +'px'
+
     }, 1000, function(){$(animationGem).remove();});
   }
+
+    
+    this.stopAudio();//added for sound
+    this.playAudio();//added for sound
+
+  }
+
+  
+
+  playAudio() { //play sound
+    this.miningSound.play(); 
+  } 
+
+  stopAudio() { //stop the sound, play only when you click
+    this.miningSound.pause(); 
+    this.miningSound.currentTime=0;
+  } 
+
 }
