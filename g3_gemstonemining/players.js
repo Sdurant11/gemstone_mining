@@ -42,7 +42,7 @@ class Player {
     this.functionToCallWhenIDie( this );
   }
 
-  leave(player){
+  leave(){
     this.leftMine = true;
     this.playerLeftFilter();
   }
@@ -50,7 +50,7 @@ class Player {
   playerLeftFilter(){
     this.domElements.container.addClass('left');
   }
-
+ß
   grungeUpPlayer(){
     this.domElements.container.addClass('kaboom');
   }
@@ -92,6 +92,6 @@ class Player {
     animationGem.animate({
       top: playerGemPosition.top + 'px',
       left: playerGemPosition.left +'px'
-    }, 2000, function(){$(animationGem).remove();});
+    }, 1000, function(){$(animationGem).remove();});
   }
 }

@@ -34,7 +34,6 @@ class Game {
   }
 
   fillGemBag() {
-
     this.gemArray = [];
     for (var gem in this.mine) {
       var gemCount = this.mine[gem].count;
@@ -42,7 +41,6 @@ class Game {
         this.gemArray.push(gem);
       }
     }
-
   }
 
   addEventListeners() {
@@ -65,8 +63,9 @@ class Game {
     var gemIndex = Math.floor(Math.random() * this.gemArray.length);
     var newGem = this.gemArray[gemIndex];
     this.gemArray.splice([gemIndex], 1);
-    this.activePlayers[this.currentPlayer].addGem(newGem);
     this.activePlayers[this.currentPlayer].moveGemtoCart(newGem);
+    this.activePlayers[this.currentPlayer].addGem(newGem);
+
 
     this.mine[newGem].count--;
     this.updateGemCount();
@@ -74,6 +73,7 @@ class Game {
     this.gotoNewPlayer();
 
   }
+
   apocalypse(){
     alert('everyone is dead');
   }
@@ -89,8 +89,9 @@ class Game {
 
   leaveMine(){
     var activePlayer = this.activePlayers[this.currentPlayer];
-    this.activePlayer.leave(activePlayer);
+    activePlayer.leave();
     this.killPlayer(activePlayer);
+    this.gotoNewPlayer();
   }
 
 
