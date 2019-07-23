@@ -11,7 +11,7 @@ class Player {
 
     this.leftMine = false;
 
-    this.miningSound = document.getElementById("miningSound"); 
+    this.miningSound = document.getElementById("miningSound");
 
 
     this.domElements = {
@@ -22,7 +22,7 @@ class Player {
     }
   }
 
-  emptyMineCart(){
+  emptyMineCart() {
     for (var gem in this.mineData) {
       this.mineCart[gem] = 0;
     }
@@ -43,37 +43,37 @@ class Player {
     this.dead = true;
     this.grungeUpPlayer();
     this.points = 0;
-    this.functionToCallWhenIDie( this );
+    this.functionToCallWhenIDie(this);
   }
 
-  leave(){
+  leave() {
     this.leftMine = true;
     this.playerLeftFilter();
   }
 
-  playerLeftFilter(){
+  playerLeftFilter() {
     this.domElements.container.addClass('left');
   }
-ß
-  grungeUpPlayer(){
+
+  grungeUpPlayer() {
     this.domElements.container.addClass('kaboom');
   }
-  updatePlayer(){
+  updatePlayer() {
     this.domElements.score.text(this.points);
-    for( var gem in this.mineCart){
-      this.domElements.mineCart.find('.'+gem).text( this.mineCart[gem]);
+    for (var gem in this.mineCart) {
+      this.domElements.mineCart.find('.' + gem).text(this.mineCart[gem]);
     }
   }
 
-  markActive(){
+  markActive() {
     this.domElements.container.addClass('currentPlayer');
   }
 
-  markInactive(){
+  markInactive() {
     this.domElements.container.removeClass('currentPlayer');
   }
 
-  render(){
+  render() {
     var domClone = $("#templates > .player").clone();
     this.domElements = {
       container: domClone,
@@ -86,35 +86,32 @@ class Player {
     return this.domElements.container;
   }
 
-  moveGemtoCart(gem){
-    var newGemPosition = $('.mine .'+gem).offset();
+  moveGemtoCart(gem) {
+    var newGemPosition = $('.mine .' + gem).offset();
     var animationGem = $('<div>');
-    animationGem.addClass('gem '+gem);
-    animationGem.css({'top': newGemPosition.top + 'px', 'left': newGemPosition.left + 'px', 'position':'absolute'});
+    animationGem.addClass('gem ' + gem);
+    animationGem.css({ 'top': newGemPosition.top + 'px', 'left': newGemPosition.left + 'px', 'position': 'absolute' });
     $('body').append(animationGem);
     var playerGemPosition = this.domElements.mineCart.find('.' + gem).offset();
     animationGem.animate({
       top: playerGemPosition.top + 'px',
-      left: playerGemPosition.left +'px'
+      left: playerGemPosition.left + 'px'
 
-    }, 1000, function(){$(animationGem).remove();});
+    }, 1000, function () {
+      $(animationGem).remove();
+
+    });
+
+    this.stopAudio();
+    this.playAudio();
   }
 
-    
-    this.stopAudio();//added for sound
-    this.playAudio();//added for sound
-
+  playAudio() {
+    this.miningSound.play();
   }
 
-  
-
-  playAudio() { //play sound
-    this.miningSound.play(); 
-  } 
-
-  stopAudio() { //stop the sound, play only when you click
-    this.miningSound.pause(); 
-    this.miningSound.currentTime=0;
-  } 
-
+  stopAudio() {
+    this.miningSound.pause();
+    this.miningSound.currentTime = 0;
+  }
 }
