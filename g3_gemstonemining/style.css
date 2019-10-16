@@ -4,32 +4,18 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    /* background-color: rgb(123, 123, 123); */
-    /* height: 100%;
-    width: 100%; */
     font-family: Luminari, fantasy;
     text-align: center;
+    overflow: hidden;
 }
-/* header {
-    justify-content: center;
-    align-content: center;
-    height: 10%;
-    background: 0;
-    margin: 20px;
-    border-style: solid;
-    border-color: dddddd;
-    border-width: 1px;
-} */
+
 header {
     justify-content: center;
     align-content: center;
     height: 12%;
     background: 0;
-    /* background:rgb(123, 123, 123); */
     margin: 10px 0 0 0;;
-    font-size: 30px;
-    /* border-width: .5px; */
-    /* color: white; */
+    font-size: 50px;
 }
 .heading {
     text-align: center;
@@ -37,19 +23,19 @@ header {
 h1 {
     text-align: center;
     font-size: larger;
-    -webkit-text-fill-color: black; /* Will override color (regardless of order) */
+    -webkit-text-fill-color: black;
     -webkit-text-stroke-width: 1.5px;
     -webkit-text-stroke-color: white;
 }
 h2 {
     font-size: 30px;
     margin: -5px;
-    /* color: white; */
-      color: black;
-  -webkit-text-fill-color: black; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: white;
+    color: black;
+    -webkit-text-fill-color: black;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
 }
+
 p {
     font-size: 30px;
     margin-top: 10px;
@@ -61,31 +47,32 @@ p {
     height: 240px;
     width: 280px;
     background-color: 0;
-    /* border: .1px solid #909090; */
+
 }
 .mine_button {
     display: inline-block;
-    /* padding: 20px; */
     height: 240px;
     width: 320px;
     background: url(assets/mine_button.png);
     background-size: contain;
     background-repeat: no-repeat;
+    font-size: 150%;
+    color: white;
 }
 .exit {
     display: inline-block;
-    /* padding: 20px; */
     height: 240px;
     width: 320px;
     background: url(assets/exit.png);
     background-size: contain;
     background-repeat: no-repeat;
+    color: white;
+    font-size: 150%
 }
 .top {
     height:40%;
     width: 100%;
     background-color: 0;
-    /* border: .5px solid #909090; */
     display: inline-flex;
 }
 .bottom {
@@ -94,7 +81,6 @@ p {
     height:45%;
     width: 100%;
     background-color:  0;
-    /* border: .5px solid #909090; */
 }
 .player {
     display: flexbox;
@@ -110,11 +96,9 @@ p {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    /* background-color: 0; */
-    /* border: 1px solid #909090; */
+
 }
 .player_name {
-    /* border: .1px solid #909090; */
     margin-top: 0;
     margin-bottom: 5%;
 }
@@ -122,14 +106,9 @@ p {
     position: absolute;
     top: 5%;
     right: 5%;
-    /* display:flex;
-    align-self: flex-end; */
     height: 36px;
     width: 48px;
     background-color: black;
-    /* border: .1px solid #909090; */
-    /* margin: 5px; */
-    /* text-justify: distribute; */
 }
 .score_text {
     font-size: 30px;
@@ -141,21 +120,16 @@ p {
 .gem {
     display: inline-block;
     justify-content: center;
-    /* align-items: center; */
     vertical-align: middle;
     position: relative;
     background-size: 100%;
-    /* margin: 5px; */
     height: 48px;
     width: 64px;
-    /* color: rgb(184, 164, 164); */
-    /* border: .1px solid #909090; */
     color: white;
 }
 .topaz {
     background: url(assets/topaz.png);
     background-size: 100%;
-    /* background-color: orange; */
 }
 .amethyst {
     background-color: purple;
@@ -163,7 +137,6 @@ p {
 .emerald {
     background: url(assets/emerald.png);
     background-size: 100%;
-    /* background-color: green; */
 }
 .sapphire {
     background-color: blue;
@@ -171,33 +144,40 @@ p {
 .ruby {
     background: url(assets/ruby.png);
     background-size: 100%;
-    /* background-color: red; */
+
 }
 .diamond {
     background: url(assets/diamond.png);
     background-size: 100%;
-    /* background-color: white; */
+
 }
 .obsidian {
     color: white;
-    /* background-color: black; */
     background: url(assets/obsidian.png);
     background-size: 100%;
 }
 .hidden {
    display: none;
 }
-.instructionModal{     /*added for modal*/
+.instructionModal{
     position: absolute;
     top: 25%;
     left: 25%;
+    right: 25%;
     height: 50%;
     width: 50%;
     border: lightcoral 3px solid;
     background-color: lightcoral;
     font-family: Luminari, fantasy;
+    z-index: 1;
+
 }
-.instructionModalCloseButton{ /*added for the button*/
+ li {
+     list-style-type:none;
+     text-align: center;
+ }
+
+.instructionModalCloseButton{
     height: 10%;
     width: 10%;
     display: block;
@@ -236,11 +216,35 @@ p {
     margin: auto;
 }
 
-#popUpSleepy2{
-    background-color: lightcoral;
-    font-family: Luminari, fantasy;
-    position: absolute;
-    color: white;
-    font-size: 50px;
-    height: 60%;
+
+#templates{
+    display: none;
+}
+.currentPlayer{
+    box-shadow: 5px 5px 5px lime;
+
+}
+
+.kaboom{
+    filter: brightness(20%);
+}
+
+.left{
+    background-color: red;
+    background-blend-mode: multiply;
+}
+
+.scoreBoard {
+ font-family: Luminari, fantasy;
+ padding: 2%;
+ text-align: center;
+ color: white;
+ font-size: 30px;
+ border-color: white;
+ border: 5px;
+ display: inline;
+ width: 20%;
+ float: right;
+ margin-left: 0px;
+
 }
